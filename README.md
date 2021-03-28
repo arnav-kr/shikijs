@@ -11,7 +11,7 @@ Add the following script to your site and shiki highlighter will be ready for us
 ```
 
 
-#Getting Started
+# Getting Started
 So now we have included the script so we can now use shiki highlighter.
 
 Here is a simple example of geting highlighted code and printing to the console.
