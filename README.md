@@ -45,9 +45,70 @@ First argument is the String containing the `code` to highlight.
 Second argument is the String containing the `language` of the code.
 Third argument is the String containing the the name of `theme` you want to use.
 
-    
+
 > **_NOTE:_**
 
 > The third theme argument is optional as the default `theme` is `"github-dark"`
-    
+
+
+## `highlight()`
+
+`Shiki.highlight()` takes the reference of an HTML Element as the argument and highlights the code contents of that element. It is necessary for the element to have the `data-language=""` specifing the language of the code else it will not be highlighted. You can Specify the theme by `data-theme=""`
+
+
+_Example:_
+
+
+**_HTML:_**
+```html
+<div id="myCode" data-language="py" data-theme="nord"></div>
+```
+
+**_JS_**
+```javscript
+var element = document.getElementById("myCode");
+Shiki.highlight(element); //The text inside myCode div will automatically be highlighted
+```
+
+
+## `highlightAll()`
+
+`Shiki.highlightAll()` is an advanced form of `Shiki.highlight()`. It doesn't take any argument and highlights all element having `class="shiki-target"` which is required if you want to automatically highlight that element. `data-language=""` should also be present in the element.
+
+## `setTheme()`
+
+`Shiki.setTheme()` sets the theme for using. It takes the name of the theme as argument and sets it as the current theme.
+
+# Properties
+
+## `Shiki.themes`
+
+`Shiki.themes` returns an Array of all available `themes` you can use.
+
+## `Shiki.languages`
+
+`Shiki.languages` returns an Array of all available `languages` you can use.
+
+## `Shiki.errorLog`
+
+`Shiki.errorLog` is an Array in which all the errors are stored that occur during highlighting your codes. Every error is stored as an object. The syntax of the error is as follows
+
+```javascript
+{
+error:"The Error That Occured",
+time:"The Time At Which the Error Occured"
+}
+```
+
+# At a Glance
+
+The main object is `Shiki` which containes all methods and properties.
+A table explaining all is given below.
+
+
+
+
+
+
+
 
