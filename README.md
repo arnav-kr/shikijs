@@ -47,5 +47,3 @@ Third argument is the String containing the the name of `theme` you want to use.
 
 
 
-
-
