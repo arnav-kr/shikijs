@@ -1,7 +1,7 @@
 # Themes
 
 
-### All AVailable Language Names are as Follows
+### All Available Language Names are as Follows
 
 * abap
 * actionscript-3
