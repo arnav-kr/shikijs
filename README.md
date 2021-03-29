@@ -4,6 +4,9 @@ A JavaScript Library for Syntax Highlighting with Awesome themes
 # Overview
 `Shiki Highlighter JS` is a javascript library built on top of `Shikijs`. It provides more features than `Shikijs`. It is a Syntax Highlighting Library and Have Amazing themes. Its supports many languages for highlighting. Even the Code bits Yo're seeing in the documentation page is highlighted using `Shiki Highlighter JS`
 
+#### Check Out [Available Themes](shikijs/Themes.md) and [Languages](Shikijs/Languages.md)
+
+
 # Including the Library
 Add the following script to your site and shiki highlighter will be ready for use. 
 ```html
