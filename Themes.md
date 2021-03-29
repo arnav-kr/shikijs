@@ -1,7 +1,7 @@
 # Themes
 
 
-### All Available Language Names are as Follows
+### All Available Themes are as Follows
 
 
 * dark-plus
