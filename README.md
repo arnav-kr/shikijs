@@ -117,6 +117,8 @@ A table explaining all is given below.
 | Shiki.errorLog | Property | — | Array | — |
 
 
+_**Shiki Highlighter JS**_ by [Arnav Kumar](https://github/com/arnav-kr).
 
+Having Trouble reading the documentation? view it [Online](javascript:void(0))
 
 
