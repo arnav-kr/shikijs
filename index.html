@@ -1,0 +1,894 @@
+<!--
+* Created By Arnav Kuamr
+* CSS Library Used :- Bulm CSS
+(-->
+<!DOCTYPE html>
+<html>
+    <head>
+    <script>window.print=console.log;console.log=()=>{}</script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/arnav-kr/Shikijs/dist/V1.2.1/shikiHighlighter.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+      <style>
+        /*Created by Arnav Kuamr*/
+/*
+You can use this in your site for little styling of shiki highlighter as it is only in js so you have to do css by yourself
+*/
+.shiki{
+    padding:.7rem;
+    border-radius:5px;
+    overflow-x:auto;
+    margin:.5rem 0;
+}
+/***************/
+main{
+    min-height:100vh;
+}
+.hide{
+    display:none !important;
+}
+.tab{
+     padding-top:2rem;   
+}
+h1{
+    margin:1rem 0;
+}
+#tab-switch .is-active{
+    color:hsl(204, 86%, 53%);
+}
+.tag.is-medium{
+    letter-spacing:normal;
+    font-size:.9rem !important;
+    padding:5px .5rem !important;
+    height:1.35rem !important;
+}
+.columns{
+    flex-direction: column;
+}
+.columns .column{
+    border-radius:10px;
+    background:hsl(171, 100%, 41%);
+    margin-bottom:.5rem;
+    color:white;
+    transition:transform .2s ease;
+}
+.column:active{
+    transform:scale(.95);
+}
+.loader-wrapper{
+    min-width:100vw;
+    min-height:100vh;
+    background-color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    z-index: 100000;
+}
+.loader-c{
+    width:100px;
+    height:calc(100px + 1.5rem);
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+}
+.circle{
+    border-radius:50%;
+    width:1.5rem;
+    height:1.5rem;
+    background-color:hsl(171, 100%, 41%);
+    animation:up-down 1s ease-in-out infinite;
+}
+.circle:nth-child(1){
+    animation-delay:0s;
+}
+.circle:nth-child(2){
+    animation-delay:.2s;
+}
+.circle:nth-child(3){
+    animation-delay:.4s;
+}
+.fix{
+    position:fixed;
+}
+.table-container{
+    overflow-x:auto;
+}
+@keyframes up-down{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(30px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+      </style>
+      <script>
+        //Created by Arnav Kumar
+var currentTab="documentation",crntTabSwitch="ts-documentation";
+document.addEventListener('DOMContentLoaded', () => {
+    Shiki.highlightAll()
+    var switches = document.querySelectorAll("#tab-switch>li");
+    switches.forEach(el=>{
+        el.addEventListener("click",e=>{
+            el.classList.toggle("is-active");
+            openTab(el.dataset.id)
+        })
+    })
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach( el => {
+      el.addEventListener('click', () => {
+
+        // Get the target from the "data-target" attribute
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+      });
+    });
+  }
+
+});
+document.onreadystatechange = function (){
+  if (document.readyState === 'complete'){
+     setTimeout(()=>{
+         document.body.classList.toggle("fix");
+         document.getElementById("loader").style.display="none";
+     },5000);
+  }
+}
+function openTab(t){
+    var oldT = document.getElementById(currentTab);
+    var newT = document.getElementById(t);
+    newT.classList.toggle("hide");
+    oldT.classList.toggle("hide");
+    document.getElementById(crntTabSwitch).classList.toggle("is-active");
+    currentTab = t;
+    crntTabSwitch = "ts-"+t;
+}
+
+onload=()=>{
+    for(x of Shiki.languages){
+        document.write("* "+x + "<br>")
+    }
+}
+      </script>
+        <title>Shiki Highlighter JS</title>
+    </head>
+    <body class="fix">
+<header>
+<section class="hero is-info is-large">
+  <div class="hero-head">
+    <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="#!">
+      Shiki Highlighter JS
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <a href="https://github.com/arnav-kr/shikijs" class="button is-dark">
+           <span>Github</span>
+         </a>
+      </div>
+    </div>
+  </div>
+</nav>
+  </div>
+
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+        Shiki Highlighter JS
+      </p>
+      <p class="subtitle">
+        Syntax Highlighting Made Easy
+      </p>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <nav class="tabs is-boxed is-fullwidth">
+      <div class="container">
+        <ul id="tab-switch">
+          <li class="is-active" id="ts-documentation" data-id="documentation">
+            <a>Documentation</a>
+          </li>
+          <li id="ts-themes" data-id="themes">
+            <a>Themes</a>
+          </li>
+          <li id="ts-languages" data-id="languages">
+            <a>Languages</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
+</header>
+<main>
+    <div id="documentation" class="container is-fluid tab">
+    
+        <h1 class="is-size-3">Overview</h1>
+        <p class="is-size-6"><b>Shiki Highlighter JS</b> is a javascript library built on top of <b>Shikijs</b>. It provides more features than <b>Shikijs</b>. It is a Syntax Highlighting Library and Have Amazing themes. Its supports many languages for highlighting. Even the Code bits Yo're seeing in this documentation page is highlighted using <b>Shiki Highlighter JS</b></p>
+        
+        <h1 class="is-size-3">Including the Library</h1>
+        <p class="is-size-6">Add the following script to your site and shiki highlighter will be ready for use.</p>
+        <div class="shiki-target" data-language="html">&lt;script src="https://cdn.jsdelivr.net/gh/arnav-kr/Shikijs/dist/V1.2.1/shikiHighlighter.min.js"&gt;&lt;/script&gt;</div>
+        
+        <h1 class="is-size-3">Getting Started</h1>
+        <p class="is-size-6">So now we have included the script so we can now use shiki highlighter.<br>Here is a simple example of geting highlighted code and printing to the console.</p>
+        <div class="shiki-target" data-language="js"
+>Shiki.getHTMLCode("function test(){}","javascript","github-dark")
+.then(res => {
+    console.log(res.code);//highlighted code
+    console.log(res.language);//language of the code "javascript"
+    console.log(res.theme);//theme of the code "github-dark"
+});</div>
+        <p class="is-size-6 mt-5">Lets understand the code now.<br><br><span class="tag is-medium has-text-danger">Shiki</span> is the main object of the library all the methods are available over this.<br>
+            <span class="tag is-medium has-text-danger">.getHTMLCode(code,language,theme)</span> is a method of <span class="tag is-medium has-text-danger">Shiki</span> object which is used to get HTML highlighted code of the original one then you can just put the returned code in DOM. It returns a <span class="tag is-medium has-text-danger">Promise</span>
+        </p>
+        
+        <h1 class="is-size-3">Methods</h1>
+        <p class="is-size-6 mt-5">There are 4 methods in <b class="tag is-medium">Shiki</b> for use.</p>
+        
+        <h1 class="is-size-4">getHTMLCode()</h1>
+        <p class="is-size-6 mt-5">This method takes three arguments.<br>
+            First argument is the String containing the <strong>code</strong> to highlight.<br>
+            Second argument is the String containing the <strong>language</strong> of the code.<br>
+            Third argument is the String containing the the name of <strong>theme</strong> you want to use.
+        </p>
+        <article class="message is-primary mt-3">
+  <div class="message-header">
+    <p>Note</p>
+  </div>
+  <div class="message-body">
+    The third <strong>theme</strong><style></style> argument is optional as the default theme is <strong>"github-dark"</strong>
+  </div>
+</article>
+
+    <h1 class="is-size-4">highlight()</h1>
+    <p class="is-size-6 mt-5"><strong>Shiki.highlight()</strong> takes the reference of an HTML Element as the argument and highlights the code contents of that element. It is necessary for the element to have the <span class="tag is-medium has-text-danger">data-language=""</span> specifing the <strong>language</strong> of the code else it will not be highlighted. You can Specify the <strong>theme</strong> by <span class="tag is-medium has-text-danger">data-theme=""</span><br>Example:</p>
+    <p class="is-size-6 mt-5"><strong class="has-text-info">HTML:</strong></p>
+    <div class="shiki-target" data-language="html">&lt;div id="myCode" data-language="py" data-theme="nord"&gt;&lt;/div&gt;</div>
+    <p class="is-size-6 mt-5"><strong class="has-text-info">JS:</strong></p>
+    <div class="shiki-target" data-language="js"
+>var element = document.getElementById("myCode");
+Shiki.highlight(element); //The text inside myCode div will automatically be highlighted
+</div>
+    <h1 class="is-size-4">highlightAll()</h1>
+    <strong>Shiki.highlightAll()</strong> is an advanced form of <strong>Shiki.highlight()</strong>. It doesn't take any argument and highlights all element having <span class="tag is-medium has-text-danger">class="shiki-target"</span> which is required if you want to automatically highlight that element. <span class="tag is-medium has-text-danger">data-language=""</span> should also be present in the element. 
+    <h1 class="is-size-4">setTheme()</h1>
+    <p class="is-size-6 mt-5"><strong>Shiki.setTheme()</strong> sets the theme for using. It takes the name of the theme as argument and sets it as the currenttheme.</p>
+    <h1 class="is-size-3">Properties</h1>
+    
+    <h1 class="is-size-4">Shiki.themes</h1>
+    <p class="is-size-6 mt-5"><strong>Shiki.themes</strong> returns an Array of all available <strong>themes</strong> you can use.</p>
+    
+    <h1 class="is-size-4">Shiki.languages</h1>
+    <p class="is-size-6 mt-5"><strong>Shiki.languages</strong> returns an Array of all available <strong>languages</strong> you can use.</p>
+    
+    <h1 class="is-size-4">Shiki.errorLog</h1>
+    <p class="is-size-6 mt-5"><strong>Shiki.errorLog</strong> is an Array in which all the errors are stored that occur during highlighting your codes. Every error is stored as an object. The syntax of the error is as follows</p>
+    <div class="shiki-target" data-language="js"
+>{
+error:"The Error That Occured",
+time:"The Time At Which the Error Occured"
+}</div>
+
+    <h1 class="is-size-3">At a Glance</h1>
+    <p class="is-size-6 mt-5">The main object is <strong>Shiki</strong> which containes all methods and properties.<br>
+    A table explaining all is given below.</p>
+    <div class="table-container">
+    <table class="table is-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Arguments</th>
+            <th>Argument Types</th>
+            <th>Return Type</th>
+        </tr>
+        <tr>
+            <td>Shiki.getHTMLCode()</td>
+            <td>Method</td>
+            <td>Code, Language, Theme(optional)</td>
+            <td>String, String, String</td>
+            <td>new Promise()</td>
+        </tr>
+        <tr>
+            <td>Shiki.highlight()</td>
+            <td>Method</td>
+            <td>HTML Element</td>
+            <td>HTMLElement</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>Shiki.highlightAll()</td>
+            <td>Method</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+        </tr>
+        <tr>
+            <td>Shiki.setTheme()</td>
+            <td>Method</td>
+            <td>Theme</td>
+            <td>String</td>
+            <td>—</td>
+        </tr>
+        <tr>
+            <td>Shiki.themes</td>
+            <td>Property</td>
+            <td>—</td>
+            <td>Array</td>
+            <td>—</td>
+        </tr>
+        <tr>
+            <td>Shiki.languages</td>
+            <td>Property</td>
+            <td>—</td>
+            <td>Array</td>
+            <td>—</td>
+        </tr>
+        <tr>
+            <td>Shiki.errorLog</td>
+            <td>Property</td>
+            <td>—</td>
+            <td>Array</td>
+            <td>—</td>
+        </tr>
+    </table>
+    </div>
+    </div>
+    <div id="themes" class="hide container is-fluid tab">
+    <h1 class="is-size-4 mb-5">All available themes are as follows:</h1>
+    <h1 class="is-size-4 mb-5 has-text-info">dark-plus</h1>
+<div class="shiki-target" data-language="js" data-theme="dark-plus">class Cat{
+    constructor(breed, color, height, cuteness){
+        this.breed = breed;
+        this.color = color || "orange";
+        this.height = height;
+        this.cuteness = cuteness;
+    }
+    talk(){
+        console.log("Meow Meow! My color is " + this.color + " My height is " + this.height + "cms from " + this.bread + "i am " this.cuteness);
+    }
+    walk(){
+        console.log("Cat is Walking!")
+    }
+    sleep(){
+        console.log("I am sleeping! zzz")
+    }
+}
+
+var cat = new Cat("felis", "white", 55, "cute");
+cat.talk();
+cat.walk();
+cat.sleep();</div> 
+
+<h1 class="is-size-4 mb-5 has-text-info">github-dark</h1>
+<div class="shiki-target" data-language="js" data-theme="github-dark">class Cat{
+    constructor(breed, color, height, cuteness){
+        this.breed = breed;
+        this.color = color || "orange";
+        this.height = height;
+        this.cuteness = cuteness;
+    }
+    talk(){
+        console.log("Meow Meow! My color is " + this.color + " My height is " + this.height + "cms from " + this.bread + "i am " this.cuteness);
+    }
+    walk(){
+        console.log("Cat is Walking!")
+    }
+    sleep(){
+        console.log("I am sleeping! zzz")
+    }
+}
+
+var cat = new Cat("felis", "white", 55, "cute");
+cat.talk();
+cat.walk();
+cat.sleep();</div> 
+<h1 class="is-size-4 mb-5 has-text-info">github-light</h1>
+<div class="shiki-target" data-language="js" data-theme="github-light">class Cat{
+    constructor(breed, color, height, cuteness){
+        this.breed = breed;
+        this.color = color || "orange";
+        this.height = height;
+        this.cuteness = cuteness;
+    }
+    talk(){
+        console.log("Meow Meow! My color is " + this.color + " My height is " + this.height + "cms from " + this.bread + "i am " this.cuteness);
+    }
+    walk(){
+        console.log("Cat is Walking!")
+    }
+    sleep(){
+        console.log("I am sleeping! zzz")
+    }
+}
+
+var cat = new Cat("felis", "white", 55, "cute");
+cat.talk();
+cat.walk();
+cat.sleep();</div>
+ <h1 class="is-size-4 mb-5 has-text-info">light-plus</h1>
+<div class="shiki-target" data-language="js" data-theme="light-plus">class Cat{
+    constructor(breed, color, height, cuteness){
+        this.breed = breed;
+        this.color = color || "orange";
+        this.height = height;
+        this.cuteness = cuteness;
+    }
+    talk(){
+        console.log("Meow Meow! My color is " + this.color + " My height is " + this.height + "cms from " + this.bread + "i am " this.cuteness);
+    }
+    walk(){
+        console.log("Cat is Walking!")
+    }
+    sleep(){
+        console.log("I am sleeping! zzz")
+    }
+}
+
+var cat = new Cat("felis", "white", 55, "cute");
+cat.talk();
+cat.walk();
+cat.sleep();</div> 
+<h1 class="is-size-4 mb-5 has-text-info">material-theme-darker</h1>
+<div class="shiki-target" data-language="js" data-theme="material-theme-darker">class Cat{
+    constructor(breed, color, height, cuteness){
+        this.breed = breed;
+        this.color = color || "orange";
+        this.height = height;
+        this.cuteness = cuteness;
+    }
+    talk(){
+        console.log("Meow Meow! My color is " + this.color + " My height is " + this.height + "cms from " + this.bread + "i am " this.cuteness);
+    }
+    walk(){
+        console.log("Cat is Walking!")
+    }
+    sleep(){
+        console.log("I am sleeping! zzz")
+    }
+}
+
+var cat = new Cat("felis", "white", 55, "cute");
+cat.talk();
+cat.walk();
+cat.sleep();</div> 
+<h1 class="is-size-4 mb-5 has-text-info">material-theme-default</h1>
+<div class="shiki-target" data-language="js" data-theme="material-theme-default">class Cat{
+    constructor(breed, color, height, cuteness){
+        this.breed = breed;
+        this.color = color || "orange";
+        this.height = height;
+        this.cuteness = cuteness;
+    }
+    talk(){
+        console.log("Meow Meow! My color is " + this.color + " My height is " + this.height + "cms from " + this.bread + "i am " this.cuteness);
+    }
+    walk(){
+        console.log("Cat is Walking!")
+    }
+    sleep(){
+        console.log("I am sleeping! zzz")
+    }
+}
+
+var cat = new Cat("felis", "white", 55, "cute");
+cat.talk();
+cat.walk();
+cat.sleep();</div> 
+<h1 class="is-size-4 mb-5 has-text-info">material-theme-lighter</h1>
+<div class="shiki-target" data-language="js" data-theme="material-theme-lighter">class Cat{
+    constructor(breed, color, height, cuteness){
+        this.breed = breed;
+        this.color = color || "orange";
+        this.height = height;
+        this.cuteness = cuteness;
+    }
+    talk(){
+        console.log("Meow Meow! My color is " + this.color + " My height is " + this.height + "cms from " + this.bread + "i am " this.cuteness);
+    }
+    walk(){
+        console.log("Cat is Walking!")
+    }
+    sleep(){
+        console.log("I am sleeping! zzz")
+    }
+}
+
+var cat = new Cat("felis", "white", 55, "cute");
+cat.talk();
+cat.walk();
+cat.sleep();</div> 
+<h1 class="is-size-4 mb-5 has-text-info">material-theme-ocean</h1>
+<div class="shiki-target" data-language="js" data-theme="material-theme-ocean">class Cat{
+    constructor(breed, color, height, cuteness){
+        this.breed = breed;
+        this.color = color || "orange";
+        this.height = height;
+        this.cuteness = cuteness;
+    }
+    talk(){
+        console.log("Meow Meow! My color is " + this.color + " My height is " + this.height + "cms from " + this.bread + "i am " this.cuteness);
+    }
+    walk(){
+        console.log("Cat is Walking!")
+    }
+    sleep(){
+        console.log("I am sleeping! zzz")
+    }
+}
+
+var cat = new Cat("felis", "white", 55, "cute");
+cat.talk();
+cat.walk();
+cat.sleep();</div> 
+<h1 class="is-size-4 mb-5 has-text-info">material-theme-palenight</h1>
+<div class="shiki-target" data-language="js" data-theme="material-theme-palenight">class Cat{
+    constructor(breed, color, height, cuteness){
+        this.breed = breed;
+        this.color = color || "orange";
+        this.height = height;
+        this.cuteness = cuteness;
+    }
+    talk(){
+        console.log("Meow Meow! My color is " + this.color + " My height is " + this.height + "cms from " + this.bread + "i am " this.cuteness);
+    }
+    walk(){
+        console.log("Cat is Walking!")
+    }
+    sleep(){
+        console.log("I am sleeping! zzz")
+    }
+}
+
+var cat = new Cat("felis", "white", 55, "cute");
+cat.talk();
+cat.walk();
+cat.sleep();</div> 
+<h1 class="is-size-4 mb-5 has-text-info">min-dark</h1>
+<div class="shiki-target" data-language="js" data-theme="min-dark">class Cat{
+    constructor(breed, color, height, cuteness){
+        this.breed = breed;
+        this.color = color || "orange";
+        this.height = height;
+        this.cuteness = cuteness;
+    }
+    talk(){
+        console.log("Meow Meow! My color is " + this.color + " My height is " + this.height + "cms from " + this.bread + "i am " this.cuteness);
+    }
+    walk(){
+        console.log("Cat is Walking!")
+    }
+    sleep(){
+        console.log("I am sleeping! zzz")
+    }
+}
+
+var cat = new Cat("felis", "white", 55, "cute");
+cat.talk();
+cat.walk();
+cat.sleep();</div> 
+<h1 class="is-size-4 mb-5 has-text-info">min-light</h1>
+<div class="shiki-target" data-language="js" data-theme="min-light">class Cat{
+    constructor(breed, color, height, cuteness){
+        this.breed = breed;
+        this.color = color || "orange";
+        this.height = height;
+        this.cuteness = cuteness;
+    }
+    talk(){
+        console.log("Meow Meow! My color is " + this.color + " My height is " + this.height + "cms from " + this.bread + "i am " this.cuteness);
+    }
+    walk(){
+        console.log("Cat is Walking!")
+    }
+    sleep(){
+        console.log("I am sleeping! zzz")
+    }
+}
+
+var cat = new Cat("felis", "white", 55, "cute");
+cat.talk();
+cat.walk();
+cat.sleep();</div> 
+<h1 class="is-size-4 mb-5 has-text-info">monokai</h1>
+<div class="shiki-target" data-language="js" data-theme="monokai">class Cat{
+    constructor(breed, color, height, cuteness){
+        this.breed = breed;
+        this.color = color || "orange";
+        this.height = height;
+        this.cuteness = cuteness;
+    }
+    talk(){
+        console.log("Meow Meow! My color is " + this.color + " My height is " + this.height + "cms from " + this.bread + "i am " this.cuteness);
+    }
+    walk(){
+        console.log("Cat is Walking!")
+    }
+    sleep(){
+        console.log("I am sleeping! zzz")
+    }
+}
+
+var cat = new Cat("felis", "white", 55, "cute");
+cat.talk();
+cat.walk();
+cat.sleep();</div> 
+<h1 class="is-size-4 mb-5 has-text-info">nord</h1>
+<div class="shiki-target" data-language="js" data-theme="nord">class Cat{
+    constructor(breed, color, height, cuteness){
+        this.breed = breed;
+        this.color = color || "orange";
+        this.height = height;
+        this.cuteness = cuteness;
+    }
+    talk(){
+        console.log("Meow Meow! My color is " + this.color + " My height is " + this.height + "cms from " + this.bread + "i am " this.cuteness);
+    }
+    walk(){
+        console.log("Cat is Walking!")
+    }
+    sleep(){
+        console.log("I am sleeping! zzz")
+    }
+}
+
+var cat = new Cat("felis", "white", 55, "cute");
+cat.talk();
+cat.walk();
+cat.sleep();</div> 
+<h1 class="is-size-4 mb-5 has-text-info">slack-theme-dark-mode</h1>
+<div class="shiki-target" data-language="js" data-theme="slack-theme-dark-mode">class Cat{
+    constructor(breed, color, height, cuteness){
+        this.breed = breed;
+        this.color = color || "orange";
+        this.height = height;
+        this.cuteness = cuteness;
+    }
+    talk(){
+        console.log("Meow Meow! My color is " + this.color + " My height is " + this.height + "cms from " + this.bread + "i am " this.cuteness);
+    }
+    walk(){
+        console.log("Cat is Walking!")
+    }
+    sleep(){
+        console.log("I am sleeping! zzz")
+    }
+}
+
+var cat = new Cat("felis", "white", 55, "cute");
+cat.talk();
+cat.walk();
+cat.sleep();</div> 
+<h1 class="is-size-4 mb-5 has-text-info">slack-theme-ochin</h1>
+<div class="shiki-target" data-language="js" data-theme="slack-theme-ochin">class Cat{
+    constructor(breed, color, height, cuteness){
+        this.breed = breed;
+        this.color = color || "orange";
+        this.height = height;
+        this.cuteness = cuteness;
+    }
+    talk(){
+        console.log("Meow Meow! My color is " + this.color + " My height is " + this.height + "cms from " + this.bread + "i am " this.cuteness);
+    }
+    walk(){
+        console.log("Cat is Walking!")
+    }
+    sleep(){
+        console.log("I am sleeping! zzz")
+    }
+}
+
+var cat = new Cat("felis", "white", 55, "cute");
+cat.talk();
+cat.walk();
+cat.sleep();</div> 
+<h1 class="is-size-4 mb-5 has-text-info">solarized-dark</h1>
+<div class="shiki-target" data-language="js" data-theme="solarized-dark">class Cat{
+    constructor(breed, color, height, cuteness){
+        this.breed = breed;
+        this.color = color || "orange";
+        this.height = height;
+        this.cuteness = cuteness;
+    }
+    talk(){
+        console.log("Meow Meow! My color is " + this.color + " My height is " + this.height + "cms from " + this.bread + "i am " this.cuteness);
+    }
+    walk(){
+        console.log("Cat is Walking!")
+    }
+    sleep(){
+        console.log("I am sleeping! zzz")
+    }
+}
+
+var cat = new Cat("felis", "white", 55, "cute");
+cat.talk();
+cat.walk();
+cat.sleep();</div> 
+<h1 class="is-size-4 mb-5 has-text-info">solarized-light</h1>
+<div class="shiki-target" data-language="js" data-theme="solarized-light">class Cat{
+    constructor(breed, color, height, cuteness){
+        this.breed = breed;
+        this.color = color || "orange";
+        this.height = height;
+        this.cuteness = cuteness;
+    }
+    talk(){
+        console.log("Meow Meow! My color is " + this.color + " My height is " + this.height + "cms from " + this.bread + "i am " this.cuteness);
+    }
+    walk(){
+        console.log("Cat is Walking!")
+    }
+    sleep(){
+        console.log("I am sleeping! zzz")
+    }
+}
+
+var cat = new Cat("felis", "white", 55, "cute");
+cat.talk();
+cat.walk();
+cat.sleep();</div>
+    </div>
+    <div id="languages" class='hide container is-fluid tab'>
+    <h1 class="is-size-4 mb-5">All available languages are as follows:</h1>
+    <div class="columns is-desktop">
+<div class="column">abap</div>
+<div class="column">actionscript-3</div>
+<div class="column">ada</div>
+<div class="column">apex</div>
+<div class="column">applescript</div>
+<div class="column">asm</div>
+<div class="column">asp-net-razor</div>
+<div class="column">awk</div>
+<div class="column">bat</div>
+<div class="column">c</div>
+<div class="column">clojure</div>
+<div class="column">cobol</div>
+<div class="column">coffee</div>
+<div class="column">cpp.embedded.macro</div>
+<div class="column">cpp</div>
+<div class="column">crystal</div>
+<div class="column">csharp</div>
+<div class="column">css</div>
+<div class="column">d</div>
+<div class="column">dart</div>
+<div class="column">diff</div>
+<div class="column">dockerfile</div>
+<div class="column">elixir</div>
+<div class="column">elm</div>
+<div class="column">erlang</div>
+<div class="column">fsharp</div>
+<div class="column">git-commit</div>
+<div class="column">git-rebase</div>
+<div class="column">gnuplot</div>
+<div class="column">go</div>
+<div class="column">graphql</div>
+<div class="column">groovy</div>
+<div class="column">hack</div>
+<div class="column">haml</div>
+<div class="column">handlebars</div>
+<div class="column">haskell</div>
+<div class="column">hcl</div>
+<div class="column">hlsl</div>
+<div class="column">html-ruby-erb</div>
+<div class="column">html</div>
+<div class="column">ini</div>
+<div class="column">java</div>
+<div class="column">javascript</div>
+<div class="column">js</div>
+<div class="column">jinja-html</div>
+<div class="column">json</div>
+<div class="column">jsonc</div>
+<div class="column">jsonnet</div>
+<div class="column">jsx</div>
+<div class="column">julia</div>
+<div class="column">kotlin</div>
+<div class="column">latex</div>
+<div class="column">less</div>
+<div class="column">lisp</div>
+<div class="column">logo</div>
+<div class="column">lua</div>
+<div class="column">makefile</div>
+<div class="column">markdown</div>
+<div class="column">matlab</div>
+<div class="column">mdx</div>
+<div class="column">nix</div>
+<div class="column">objective-c</div>
+<div class="column">ocaml</div>
+<div class="column">pascal</div>
+<div class="column">perl</div>
+<div class="column">perl6</div>
+<div class="column">php</div>
+<div class="column">pls</div>
+<div class="column">postcss</div>
+<div class="column">powershell</div>
+<div class="column">prolog</div>
+<div class="column">pug</div>
+<div class="column">puppet</div>
+<div class="column">purescript</div>
+<div class="column">python</div>
+<div class="column">r</div>
+<div class="column">razor</div>
+<div class="column">ruby</div>
+<div class="column">rust</div>
+<div class="column">sas</div>
+<div class="column">sass</div>
+<div class="column">scala</div>
+<div class="column">scheme</div>
+<div class="column">scss</div>
+<div class="column">shaderlab</div>
+<div class="column">shellscript</div>
+<div class="column">smalltalk</div>
+<div class="column">sql</div>
+<div class="column">ssh-config</div>
+<div class="column">stylus</div>
+<div class="column">swift</div>
+<div class="column">tcl</div>
+<div class="column">toml</div>
+<div class="column">ts</div>
+<div class="column">tsx</div>
+<div class="column">typescript</div>
+<div class="column">vb</div>
+<div class="column">viml</div>
+<div class="column">vue</div>
+<div class="column">wasm</div>
+<div class="column">xml</div>
+<div class="column">xsl</div>
+<div class="column">yaml</div>
+<div class="column">文言</div>
+    </div>
+    </div>
+</main>
+<footer class="footer mt-5">
+  <div class="content">
+    <p>
+      <strong>Shiki Highlighter JS</strong> by <a href="https://github.com/arnav-kr">Arnav Kumar</a>.<br>Give it a Star on <a href="https://github.com/arnav-kr/shikijs/">Github</a>.<br>
+      <a class="github-button" href="https://github.com/arnav-kr/Shikijs" data-icon="octicon-star" data-size="large" aria-label="Star arnav-kr/Shikijs on GitHub">Star</a>
+      <a class="github-button" href="https://github.com/arnav-kr" data-size="large" aria-label="Follow @arnav-kr on GitHub">Follow Arnav Kumar</a>
+<a class="github-button" href="https://github.com/arnav-kr/shikijs/issues" data-icon="octicon-issue-opened" data-size="large" aria-label="Issue arnav-kr/movableJs on GitHub">Issue</a>
+<a class="github-button" href="https://github.com/arnav-kr/shikijs/fork" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork arnav-kr/shikijs on GitHub">Fork ShikiHighlighter.js</a>
+    </p>
+  </div>
+</footer>
+<div class="loader-wrapper" id="loader">
+    <div class="loader-c">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>    
+    </div>
+</div>
+    </body>
+</html>
