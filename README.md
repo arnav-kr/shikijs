@@ -20,15 +20,10 @@ So now we have included the script so we can now use shiki highlighter.
 Here is a simple example of geting highlighted code and printing to the console.
 ```javascript
 Shiki.getHTMLCode("function test(){}","javascript","github-dark")
-
 .then(res => {
-
     console.log(res.code);//highlighted code
-
     console.log(res.language);//language of the code "javascript"
-
     console.log(res.theme);//theme of the code "github-dark"
-
 });
 ``` 
 
