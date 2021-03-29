@@ -119,6 +119,6 @@ A table explaining all is given below.
 
 _**Shiki Highlighter JS**_ by [Arnav Kumar](https://github/com/arnav-kr).
 
-Having Trouble reading the documentation? view it [Online](javascript:void(0))
+Having Trouble reading the documentation? view it [Online](https://arnav-kr.github.io/shikijs)
 
 
