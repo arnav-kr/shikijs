@@ -29,6 +29,21 @@ Shiki.getHTMLCode("function test(){}","javascript","github-dark")
 });
 ``` 
 
+Lets understand the code now.
+
+`Shiki` is the main object of the library all the methods are available over this.
+`.getHTMLCode(code,language,theme)` is a method of `Shiki` object which is used to get HTML highlighted code of the original one then you can just put the returned code in DOM. It returns a `Promise`.
+
+# Methods
+
+There are 4 methods in `Shiki` for use.
+
+## `getHTMLCode()`
+
+This method takes three arguments.
+First argument is the String containing the `code` to highlight.
+Second argument is the String containing the `language` of the code.
+Third argument is the String containing the the name of `theme` you want to use.
 
 
 
