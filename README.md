@@ -45,5 +45,9 @@ First argument is the String containing the `code` to highlight.
 Second argument is the String containing the `language` of the code.
 Third argument is the String containing the the name of `theme` you want to use.
 
+    
+> **_NOTE:_**
 
+> The third theme argument is optional as the default `theme` is `"github-dark"`
+    
 
