@@ -21,6 +21,35 @@ You can use this in your site for little styling of shiki highlighter as it is o
     margin:.5rem 0;
 }
 /***************/
+body::-webkit-scrollbar {
+ width: 6px;
+ height: 6px;
+ background-color: transparent;
+}
+body::-webkit-scrollbar-thumb {
+ background: #616161;
+}
+body::-webkit-scrollbar-thumb:hover{
+ background: #3d3d3d;
+}
+body::-webkit-scrollbar-track{
+ background:white;
+}
+body *::-webkit-scrollbar {
+ width: 5px;
+ height: 5px;
+}
+body *::-webkit-scrollbar-thumb {
+ background: #00d1b2;
+ border-radius: 5px;
+}
+body *::-webkit-scrollbar-thumb:hover{
+ background: #07b8a0;
+}
+body *::-webkit-scrollbar-track{
+ background: #e0e0e0;
+ border-radius: 5px;
+}
 main{
     min-height:100vh;
 }
