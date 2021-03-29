@@ -106,7 +106,15 @@ The main object is `Shiki` which containes all methods and properties.
 A table explaining all is given below.
 
 
-
+| Name	| Type | Arguments| Argument Types | Return Type |
+| --- | --- | --- | --- | --- |
+| Shiki.getHTMLCode() | Method | Code, Language, Theme(optional) | String, String, String | new Promise() |
+| Shiki.highlight() | Method | HTML Element | HTMLElement | null |
+| Shiki.highlightAll() | Method | — | — | — |
+| Shiki.setTheme() | Method | Theme | String | — |
+| Shiki.themes | Property | — | Array | — |
+| Shiki.languages | Property | — | Array | — |
+| Shiki.errorLog | Property | — | Array | — |
 
 
 
