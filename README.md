@@ -21,7 +21,7 @@ By default you get the Shiki object. We can perform different actions on this ob
 
 There are 4 different methods in `Shiki` object.
 
-## `getHTMLCode()`
+## `Shiki.getHTMLCode()`
 
 |Argument Name|Type|Default|
 |-------------|----|-------|
@@ -33,7 +33,7 @@ There are 4 different methods in `Shiki` object.
 > The third theme argument is optional as the default theme is `"github-dark"`
 
 
-## `highlight()`
+## `Shiki.highlight()`
 
 `highlight()` comes in handy when you want to highligt code in an html element. It requires the reference of an html element as the argument, Shiki will replace it's textContent with the highlighted version of it.
 It also requires to have certain attributes for the element. They are
@@ -54,7 +54,7 @@ Shiki.highlight(element); //The text inside myCode div will automatically be hig
 ```
 
 
-## `highlightAll()`
+## `Shiki.highlightAll()`
 
 `highlightAll()` comes in handy when you want to highligt code in a selection of html elements. It doesnt require any arguments to be passed with the function, Shiki will replace all the elements with the class `shiki-target` and replaces textContent with the highlighted version of it.
 It also requires to have certain attributes for the all elements with the specific class. They are
@@ -76,7 +76,7 @@ _Example:_
 Shiki.highlightAll();
 ```
 
-## `setTheme()`
+## `Shiki.setTheme()`
 
 `setTheme()` allows you to change the default theme. It takes the name of the theme as argument and sets it as the default theme for the session.
 
@@ -92,38 +92,52 @@ Shiki.getHTMLCode("function start(){}", "javascript");
 
 ## `Shiki.themes`
 
-`Shiki.themes` returns an Array of all available `themes` you can use.
+`themes` returns an array of all available themes you can use.
+
+**_JS_**
+```javscript
+console.log(Shiki.themes);
+```
 
 ## `Shiki.languages`
 
-`Shiki.languages` returns an Array of all available `languages` you can use.
+`languages` returns an array of all available languages you can use.
+
+**_JS_**
+```javscript
+console.log(Shiki.languages);
+```
 
 ## `Shiki.errorLog`
 
-`Shiki.errorLog` is an Array in which all the errors are stored that occur during highlighting your codes. Every error is stored as an object. The syntax of the error is as follows
+`errorLog` is an Array in which you can find all the errors that Shiki ran into when it was running or while it was highlighting your code. Every element of this array is an object. The object structure is as follows.
 
 ```javascript
 {
-error:"The Error That Occured",
-time:"The Time At Which the Error Occured"
+  error:"ERROR_NAME",
+  time:"ERROR_TIMESTAMP"
 }
 ```
+
 
 # At a Glance
 
 The main object is `Shiki` which containes all methods and properties.
 A table explaining all is given below.
 
+## Methods
+| Name | Arguments| Argument Types | Return Type |
+| --- | --- | --- | --- |
+| Shiki.getHTMLCode() | Code, Language, Theme(optional) | String, String, String | Promise |
+| Shiki.highlight() | HTML Element | HTMLElement | null |
+| Shiki.highlightAll() | — | — | — |
+| Shiki.setTheme() | Theme | String | — |
 
-| Name	| Type | Arguments| Argument Types | Return Type |
-| --- | --- | --- | --- | --- |
-| Shiki.getHTMLCode() | Method | Code, Language, Theme(optional) | String, String, String | new Promise() |
-| Shiki.highlight() | Method | HTML Element | HTMLElement | null |
-| Shiki.highlightAll() | Method | — | — | — |
-| Shiki.setTheme() | Method | Theme | String | — |
-| Shiki.themes | Property | — | Array | — |
-| Shiki.languages | Property | — | Array | — |
-| Shiki.errorLog | Property | — | Array | — |
+| Name	| Type |
+| --- | --- |
+| Shiki.themes | Array |
+| Shiki.languages | Array |
+| Shiki.errorLog | Array |
 
 
 _**Shiki Highlighter JS**_ by [Arnav Kumar](https://github/com/arnav-kr).
