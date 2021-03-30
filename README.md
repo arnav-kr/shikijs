@@ -122,8 +122,7 @@ console.log(Shiki.languages);
 
 # At a Glance
 
-The main object is `Shiki` which containes all methods and properties.
-A table explaining all is given below.
+By default you get the Shiki object. You can perform the below actions with it.
 
 ## Methods
 | Name | Arguments| Argument Types | Return Type |
@@ -132,6 +131,8 @@ A table explaining all is given below.
 | Shiki.highlight() | HTML Element | HTMLElement | null |
 | Shiki.highlightAll() | — | — | — |
 | Shiki.setTheme() | Theme | String | — |
+
+## Properties
 
 | Name	| Type |
 | --- | --- |
