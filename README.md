@@ -48,7 +48,7 @@ _Example:_
 <div id="myCode" data-language="py" data-theme="nord"></div>
 ```
 **_JS_**
-```javscript
+```javascript
 var element = document.getElementById("myCode");
 Shiki.highlight(element); //The text inside myCode div will automatically be highlighted
 ```
@@ -72,7 +72,7 @@ _Example:_
 <div class="shiki-target" data-language="c" data-theme="github-light"></div>
 ```
 **_JS_**
-```javscript
+```javascript
 Shiki.highlightAll();
 ```
 
@@ -80,7 +80,7 @@ Shiki.highlightAll();
 
 `setTheme()` allows you to change the default theme. It takes the name of the theme as argument and sets it as the default theme for the session.
 
-```javscript
+```javascript
 Shiki.setTheme("github-light");
 
 Shiki.getHTMLCode("function start(){}", "javascript");
@@ -95,7 +95,7 @@ Shiki.getHTMLCode("function start(){}", "javascript");
 `themes` returns an array of all available themes you can use.
 
 **_JS_**
-```javscript
+```javascript
 console.log(Shiki.themes);
 ```
 
@@ -104,7 +104,7 @@ console.log(Shiki.themes);
 `languages` returns an array of all available languages you can use.
 
 **_JS_**
-```javscript
+```javascript
 console.log(Shiki.languages);
 ```
 
